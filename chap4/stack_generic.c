@@ -67,13 +67,13 @@ int main()
 
 
     stack floatStack;
-    StackNew(&s, sizeof(float));
+    StackNew(&floatStack, sizeof(float));
     float f = 1.2;
-    StackPush(&s, &f);
+    StackPush(&floatStack, &f);
     float f2 = 2.3;
-    StackPush(&s, &f2);
+    StackPush(&floatStack, &f2);
     float topf;
-    StackPop(&s, &topf);
+    StackPop(&floatStack, &topf);
     printf("the last element is %f\n", topf);
     
 
@@ -87,4 +87,18 @@ int main()
     axis atop;
     StackPop(&axisStack, &atop);
     printf("the last elements x is: %d, the y is %d\n", atop.x, atop.y);
+
+
+    stack stringStack;
+    StackNew(&stringStack, sizeof(char*));
+    char *a = "hello";
+    StackPush(&stringStack, &a);
+
+    char *b = "world";
+    StackPush(&stringStack, &b);
+
+    char *r;
+    StackPop(&stringStack, &r);
+    printf("the word is: %s", r);
+
 }
