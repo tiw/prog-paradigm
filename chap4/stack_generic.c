@@ -49,8 +49,31 @@ typedef struct {
     int y;
 } axis;
 
+
+void test() 
+{
+    stack s;
+    StackNew(&s, sizeof(char*));
+    char *friends[3];
+    friends[0]= "mike";
+    friends[1]="bob";
+    friends[2]="john";
+    for(int i = 0; i < 3; i++) {
+        char* c = strdup(friends[i]);
+        StackPush(&s, &c);
+    }
+
+    for(int i = 0; i < 3; i++) {
+        char* t;
+        StackPop(&s, &t);
+        printf("%s\n", t);
+    }
+
+}
+
 int main()
 {
+    test();
     stack s;
     StackNew(&s, sizeof(int));
     int two = 2;
